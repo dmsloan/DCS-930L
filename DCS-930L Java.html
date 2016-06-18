@@ -1,0 +1,142 @@
+
+<html>
+<head>
+<link rel="stylesheet" rev="stylesheet" href="dlink.css?cidx=1.142015-10-06" type="text/css">
+<title>Sloan Home Java DCS-930L</title>
+<meta http-equiv="X-UA-Compatible" content="requiresActiveX=true">
+<meta content="text/html; charset=windows-1252" http-equiv=Content-Type>
+<meta HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<meta HTTP-EQUIV="Expires" CONTENT="-1">
+<script language="Javascript" SRC="function.js?cidx=1.142015-10-06"></script>
+<script language="Javascript" SRC="deployJava.js?cidx=1.142015-10-06"></script>
+<script language="Javascript">
+var jreversions = deployJava.getJREs();
+var fInterval = "";
+function InitAUTO()
+{
+  frm0 = document.forms[0];
+  frm1 = document.forms[1];
+  frm0.WebLanguageSel.value = frm1.WebLanguage.value;
+}
+function ClickSubmit()
+{
+  javascript:document.forms[1].submit();
+}
+function Stop() {
+	window.clearInterval(fInterval);
+}
+function ShowRunningString() {
+    fInterval = window.setInterval("ShowFrameRate()", 1000);
+}
+function Init() {
+    if (1) {
+       audioon.disabled = false;
+       audiooff.disabled = false;
+    } else {
+       audioon.disabled = true;
+       audiooff.disabled = true;
+    }
+    
+    window.setTimeout("ShowRunningString()", 3000);
+}
+function ShowFrameRate() {
+    var fFrameRate;
+    if ((1) || (0))
+    {
+       fFrameRate = cvcs.GetFrameRate();
+    }
+    if (1)
+    {
+       window.status = "Frame:" + fFrameRate.toString() + " fps"
+    }
+    if (0)
+    {
+       CurrentFrame.innerHTML = "Frame:" + fFrameRate.toString() + " fps"
+    }
+    cvcs.GetRealTimeData(); 
+    CurrentTime.innerHTML = cvcs.GetTimeString();
+}
+</script>
+</head>
+
+//<body topmargin="1" leftmargin="0" rightmargin="0" bgcolor="#757575" onload="Init()" onunload="Stop()">
+<table id="header_container" border="0" cellpadding="5" cellspacing="0" width="838" align="center">
+</table>
+<div id="title_container">
+<table id="topnav_container" border="0" cellpadding="0" cellspacing="0" width="838" align="center">
+</table>
+</div>
+<table id="index_container" border="0" cellpadding="2" cellspacing="1" width="838" align="center" bgcolor="#FFFFFF">
+<tr><td colspan=6 height=1 bgcolor="#ffffff"></td></tr>
+</table>
+<table id="space_container" border="0" cellpadding="0" cellspacing="0" width="838" align="center" bgcolor="#FFFFFF" bordercolordark="#FFFFFF" height=50%>
+<tr><td height=1 bgcolor="#000000"></td></tr>
+<tr><td>
+<table id="data_container" border="0" cellpadding="0" cellspacing="0" width="838" align="center" bgcolor="#FFFFFF" bordercolordark="#FFFFFF" height=100%>
+<tr>
+  <td valign="top" id="maincontent_container" height="420">
+    <table height="420" width=100% border="0" cellpadding="0" cellspacing="0" bgcolor="white">
+    <tr><td>
+    <div id="maincontent">
+      <!-- === BEGIN MAINCONTENT === -->
+      <div id="box_header"> 
+      <h1>Camera</h1>
+      Current resolution is 640x480.
+      </div>
+      <div class="box">
+        <h2>Function</h2>
+        <input type=radio name=LiveVideo onclick="location.href='aview.htm'">ActiveX&nbsp;
+        <input type=radio name=LiveVideo checked>Java
+      </div>
+      <div class="box">
+        <h2>Live Video</h2>
+        <table cellpadding="2" cellspacing="1" border="0" width="534" bgcolor="white" bordercolor="#FFFFFF">
+        <tr><td align="center">
+          <table BORDER=0 CELLSPACING=0 CELLPADDING=0>
+          <tr>
+            <td bgcolor=black><font color=white>DCS-930L Sloan<br></font></td>
+            <td bgcolor=black align=right valign=top nowrap>&nbsp;&nbsp;<font color=white><SPAN id="CurrentTime"></SPAN></font></td>
+          </tr>
+          <tr>
+            <td colspan=2 align=center bgcolor="white">            
+              <span id="id_jre" style="color:red;display:none;"><br><br><b>Please visit <a href="http://www.java.com">http://www.java.com</A> to download and install Java.</b><br><br><br></span>
+              <script language="Javascript">
+              if (jreversions == "") {
+                  id_jre.style.display='';
+              } else {
+                document.write('<applet name=\"cvcs\" codeBase=\"http://192.168.1.225:80\" archive=\"aplug.jar\" code=\"aplug.class\" width=\"640\" height=\"480\">');
+                document.write('<param name=\"RemotePort\" value=\"80\">');
+                document.write('<param name=\"Timeout\" value=\"5000\">');
+                document.write('<param name=\"RotateAngle\" value=\"0\">');
+                document.write('<param name=\"PreviewFrameRate\" value=\"2\">');
+                document.write('<param name=\"Algorithm\" value=\"1\">');
+                document.write('<param name=\"DeviceSerialNo\" value=\"YWRtaW46MDQwNTAy\">');
+                document.write('</applet>');
+              }
+              </script>
+            </td>
+          </tr>
+          </table>
+        </td></tr>
+        <tr><td nowrap>&nbsp;&nbsp;Zoom :
+          <INPUT type="button" style="width:35px" value='x1' onClick="cvcs.Zoom(1)">
+          <INPUT type="button" style="width:35px" value='x2' onClick="cvcs.Zoom(2)">
+          <INPUT type="button" style="width:35px" value='x3' onClick="cvcs.Zoom(3)">
+          <INPUT type="button" style="width:35px" value='x4' onClick="cvcs.Zoom(4)">
+          &nbsp;&nbsp;<SPAN ID="CurrentFrame"></SPAN>
+        </td></tr>
+        </table>
+      </div>
+      <!-- === END MAINCONTENT === -->
+    </div>
+    </td></tr>
+    <tr height=100%><td></td></tr>
+    </table>
+  </td>
+</tr>
+</body>
+
+<script language="Javascript">
+InitAUTO();
+</script>
+</html>
